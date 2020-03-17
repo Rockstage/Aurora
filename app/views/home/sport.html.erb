@@ -1,0 +1,31 @@
+<div id="header" class="container-fluid dark graybg">
+	<div class="row">
+		<div class="col-sm-6">
+			<%= link_to image_tag("aurora-web-logo.png", class: "logo2", alt: "Logo of Trevor AI"), root_path %>
+		</div>
+		<div class="col-sm-6">
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to "Aurora R", racing_path, class: '' %></li>
+				<li class="active"><%= link_to "Aurora S", sport_path, class: '' %></li>
+				<li><%= link_to "Aurora E", electric_path, class: '' %></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="main" class="container-fluid dark section-top">
+	<div class='row'>
+		<h1 class="text-center aurora">Daily supercar performance</h1>
+		<%= image_tag("aurora-top.png", class: "render") %>
+		<div class="sexy-stats">
+			<ul>
+				<li>900kg</li>
+				<li>Mid-engined</li>
+				<li>387 HP/ton</li>
+				<li>55 MPG</li>
+				<li>L5c, 2-seater</li>
+				<li>~$625/mo</li>
+			</ul>
+		</div>
+	</div>
+</div>
