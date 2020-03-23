@@ -8,13 +8,13 @@ class HomeController < ApplicationController
   def electric
   end
 
-  def press
-  end
-
   def company
   end
 
   def investors
+  end
+
+  def reserve
   end
   
 end

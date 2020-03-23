@@ -33,6 +33,8 @@
     font-style: normal;
 }
 
+$aurora: #70c1ff;
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -40,10 +42,12 @@ html, body {
 	padding: 0;
 }
 
+$background: #474747;
+
 body {
 	font-family: 'Helvetica Neue', 'Roboto', Arial, sans-serif;
 	min-width: 100%;
-	background: #474747;
+	background: $background;
 }
 
 .navbar {
@@ -86,9 +90,14 @@ p {
 
 .sexy-stats {
 	display: table;
-	margin: 50px auto;
+	margin: 25px auto;
+	height: 100%;
+	width: 100%;
 	ul {
+		position: absolute;
 		text-align: center;
+		width: 100%;
+		padding-bottom: 0;
 		li {
 			font-family: "jura-light";
 			font-size: 2em;
@@ -100,11 +109,40 @@ p {
 	}
 }
 
+.feature-title {
+	position: relative;
+	margin-bottom: -100px;
+	z-index: 3;
+	color: $aurora;
+	@media (max-width: 768px) {
+		margin-bottom: 0;
+	}
+}
+.feature-content {
+	position: relative;
+	margin-top: -100px;
+	z-index: 2;
+	@media (max-width: 768px) {
+		margin-top: 100px;
+	}
+	&.with-buttons {
+		margin-top: -225px;
+		@media (max-width: 922px) {
+			margin-top: 25px;
+		}
+	}
+}
 .feature-column {
 	padding: 0 30px;
 	p {
 		text-align: justify;
 	}
+}
+.feature-button {
+	font-family: 'jura-bold';
+	color: $aurora;
+	font-size: 2em;
+	// font-weight: 200;
 }
 
 ul {
@@ -121,7 +159,11 @@ hr.margin {
 	margin: 30px 0;
 }
 
-$aurora: #70c1ff;
+hr.dashed {
+	border-color: #bfbfbf;
+	border-style: dashed;
+}
+
 .aurora {
 	color: $aurora;
 }
@@ -156,7 +198,7 @@ $aurora: #70c1ff;
 }
 
 .section-top {
-	padding-top: 0;
+	padding-top: 25px;
 }
 
 .dark {
@@ -204,9 +246,11 @@ $aurora: #70c1ff;
 
 .render {
 	display: block;
-	width: 80%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	// box-shadow: 0 0 75px 50px $background inset; //fade - TODO: RESPONSIVE
+	// box-shadow: 0 0 75px 5vw $background inset; //fade - TODO: RESPONSIVE
 }
 
 
@@ -270,6 +314,7 @@ $aurora: #70c1ff;
 
 #header {
 	height: 80px;
+	z-index: 10;
 	@media (max-width: 768px) {
 		margin-bottom: 100px;
 	}
@@ -342,7 +387,7 @@ $aurora: #70c1ff;
 				font-weight: 200;
 			}
 			#mce-EMAIL {
-				margin-top: 50px;
+				margin-top: 0;
 				background-color: rgba(255,255,255,0);
 				border: none;
 				border-bottom: 1px solid white;
@@ -384,8 +429,12 @@ $aurora: #70c1ff;
 		position: relative;
 		background-size: cover;
 		background-position: center;
-		height: 400px;
-
+		background-repeat: no-repeat;
+		height: calc(80vh);
+		// min-height: 400px;
+		// max-height: 1080px;
+		// box-shadow: 0 0 75px 50px $background inset; //fade - TODO: RESPONSIVE
+		// box-shadow: 0 0 75px 2vw $background inset; //fade - TODO: RESPONSIVE
 	}
 	.connected {
 		background-image: image-url("connected.jpg");
@@ -411,21 +460,27 @@ $aurora: #70c1ff;
 		background-position: center top;
 	}
 	.a-top {
-		background-image: image-url("aurora-top.png");
+		background-image: image-url("web2.png");
 	}
 	.a-front {
-		background-image: image-url("aurora-front.png");
+		background-image: image-url("web5.png");
 	}
 	.a-back {
-		background-image: image-url("aurora-back.png");
+		background-image: image-url("web3.png");
 	}
 	.a-perspective {
-		background-image: image-url("aurora-perspective.png");
+		background-image: image-url("web1.png");
 	}
-	.row > div {
+	.a-closeup-side {
+		background-image: image-url("web4.png");
+	}
+	.a-closeup-front {
+		background-image: image-url("web6.png");
+	}
+	.row > .bottom {
 		position: absolute;
 		bottom: 0;
-		padding: 140px 50px 50px 50px;
+		// padding: 140px 50px 50px 50px;
 	}
 	p {
 		font-weight: 400;
@@ -446,11 +501,31 @@ $aurora: #70c1ff;
 			height: 500px;
 		}
 	}
+	.top {
+		position: relative;
+		top: 25px;
+	}
+	.bottom {
+		position: absolute;
+		bottom: 0px;
+	}
+	.heading {
+		padding: 50px 0;
+		background-color: $background;
+		border-top: 2px solid $aurora;
+		border-bottom: 2px solid $aurora;
+		box-shadow: 0 50px 75px 0 black;
+		// box-shadow: 0 75px 50px 0px $background outline;
+		color: $aurora;
+	}
+	hr {
+		margin: 15px 50px;
+		border-color: $aurora;
+	}
 }
 
 #signup {
-	padding-top: 0;
-
+	padding-top: 50px;
 	padding-bottom: 50px;	
 	.download {
 		padding: 0;
@@ -458,7 +533,7 @@ $aurora: #70c1ff;
 			height: 100%;
 			background-color: rgba(255,255,255,0);
 			form {
-				padding-left: 0;
+				padding: 0 !important;
 				h1 {
 					font-family: inherit;
 					font-weight: 200;
