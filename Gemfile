@@ -36,12 +36,10 @@ gem 'rename'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pg', '0.20'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -54,6 +52,6 @@ end
 
 group :production do
   gem 'rails_12factor'
-# 	gem 'pg', '0.20'
+	gem 'pg', '0.20'
 end
 
